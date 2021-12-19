@@ -35,7 +35,6 @@ module.exports = {
 				return res.status(400).send("NOT_FOUND");
 			}
 
-			// CRITERIA 1
 			const criteria1 = product.getDataValue("mrp") >= product.getDataValue("price");
 			const criteria2 = product.getDataValue("stock") > 0;
 
@@ -55,6 +54,7 @@ module.exports = {
 			return res.status(204).send("");
 		} catch (err) {
 			console.error(err);
+			return res.status(500).json(err);
 		}
 	},
 
